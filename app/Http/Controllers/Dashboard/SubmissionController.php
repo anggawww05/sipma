@@ -261,7 +261,7 @@ class SubmissionController extends Controller
         }
     }
 
-    // menghapus pengajuan dari database
+    // menghapus pengaduan dari database
     public function destroy(int $id)
     {
         try {
@@ -314,9 +314,9 @@ class SubmissionController extends Controller
         $data = [
             'full_name' => $submission->user->student->full_name,
             'email' => $submission->user->email,
-            'message' => 'Pengajuan kamu telah ' . $status . ' oleh operator.',
+            'message' => 'Pengaduan kamu telah ' . $status . ' oleh operator.',
             'ticket_number' => $submission->ticket_number,
-
+            'submission_status' => $submission->status,
         ];
 
         Mail::to($submission->user->email)->send(new SendEmail($data));

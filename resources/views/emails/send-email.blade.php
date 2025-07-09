@@ -8,7 +8,9 @@
     <h2>Hello, {{ $data['full_name'] }}!</h2>
     <p>{{ $data['email'] }}</p>
     <p>{{ $data['message'] }}</p>
-    <p>Nomor Tiket Anda: {{ $data['ticket_number'] }}</p>
+    @if ($data['submission_status'] !== 'rejected')
+        <p>Nomor Tiket Anda: {{ $data['ticket_number'] }}</p>
+    @endif
     <p>Terimakasih!</p>
 </body>
 

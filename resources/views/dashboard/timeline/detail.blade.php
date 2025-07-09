@@ -2,10 +2,10 @@
 
 @section('content')
     <form class="grid lg:grid-cols-2 gap-3 p-4 rounded-[4px] border border-[#0d1117]/[0.12]">
-        <div>
+        {{-- <div>
             <label for="title" class="block text-sm font-medium">Judul</label>
             <input type="text" id="title" name="title" value="{{ $timeline->title }}" class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>
-        </div>
+        </div> --}}
         <div>
             <label for="status" class="block text-sm font-medium">Status</label>
             <input type="text" id="status" name="status" value="{{ $timeline->status }}" class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>

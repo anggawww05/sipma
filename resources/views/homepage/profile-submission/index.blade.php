@@ -25,6 +25,9 @@
                 <thead class="text-[0.875rem] text-[#0d1117] bg-[#0d1117]/[0.04] border-b border-[#0d1117]/[0.12]">
                     <tr>
                         <td class="px-6 py-3 font-medium">
+                            No Tiket
+                        </td>
+                        <td class="px-6 py-3 font-medium">
                             Judul
                         </td>
                         <td class="px-6 py-3 font-medium">
@@ -50,6 +53,9 @@
                         @foreach ($submissions as $submission)
                             <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
                                 <td class="px-6 py-4">
+                                    {{ $submission->ticket_number }}
+                                </td>
+                                <td class="px-6 py-4">
                                     {{ $submission->title }}
                                 </td>
                                 <td class="px-6 py-4">
@@ -69,10 +75,11 @@
                                         <a href="{{ route('profile-submission.show', $submission->id) }}"
                                             class="font-medium text-blue-600 hover:underline">Lihat Pengajuan</a>
                                     @elseif($submission->status === 'rejected')
-                                        <form action="{{ route('profile-submission.destroy', $submission->id) }}"
-                                            method="POST">
+                                        <form action="{{ route('profile-submission.create') }}"
+                                        {{-- <form action="{{ route('profile-submission.destroy', $submission->id) }}" --}}
+                                            method="GET">
                                             @csrf
-                                            @method('DELETE')
+                                            {{-- @method('DELETE') --}}
                                             <button type="submit" class="font-medium text-red-600 hover:underline"
                                                 onclick="return confirm('Apakah anda ingin mengajukan ulang postingan?')">Ajukan
                                                 Ulang</button>

@@ -20,6 +20,11 @@
             </div>
         </div>
         <div class="lg:col-span-2">
+            <label for="title" class="block text-sm font-medium">Pengadu (Mahasiswa)</label>
+            <input type="text" id="title" name="title" value="{{ $submission->user->username }}"
+                class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>
+        </div>
+        <div class="lg:col-span-2">
             <label for="title" class="block text-sm font-medium">Judul</label>
             <input type="text" id="title" name="title" value="{{ $submission->title }}"
                 class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>
@@ -112,9 +117,9 @@
                     @else
                         @foreach ($submissionTimelines as $timeline)
                             <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                                <td class="px-6 py-4">
+                                {{-- <td class="px-6 py-4">
                                     {{ $timeline->title }}
-                                </td>
+                                </td> --}}
                                 <td class="px-6 py-4">
                                     {{ $timeline->status }}
                                 </td>

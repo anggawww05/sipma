@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('timelines', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('submission_id')->index();
-            $table->string('title');
-            $table->text('description');
+            // $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->string('status');
             $table->integer('order')->default(1);
             $table->timestamps();

@@ -30,7 +30,7 @@
                     <div class="text-sm space-y-6 text-left">
                         @foreach($submission->timelines as $timeline)
                             <div>
-                                <p class="text-center font-medium">{{ $timeline->title }} ({{ \Carbon\Carbon::parse($timeline->created_at)->translatedFormat('j F Y - H:i') }})</p>
+                                {{-- <p class="text-center font-medium">{{ $timeline->title }} ({{ \Carbon\Carbon::parse($timeline->created_at)->translatedFormat('j F Y - H:i') }})</p> --}}
                                 <p class="text-center font-semibold {{ $timeline->status == 'Pengaduan Diterima' ? 'text-blue-600' : ($timeline->status == 'Selesai' ? 'text-green-600' : 'text-yellow-600') }}">{{ $timeline->status }}</p>
                                 <p class="text-center text-gray-700">
                                     {{ $timeline->description }}

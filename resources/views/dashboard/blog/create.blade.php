@@ -14,7 +14,10 @@
             <label for="image_path" class="block text-sm font-medium">Foto Blog</label>
             <div class="wrapper mt-2 flex items-end gap-[6px]">
                 <img id="image-preview" src="https://placehold.co/400x400?text=Image+Not+Found" alt="Foto Blog" class="w-[100px] aspect-square rounded-[4px] object-cover border border-[#0d1117]/[0.12]">
-                <input type="file" name="image_path" id="image-input">
+                <label for="image-input" class="cursor-pointer flex items-center gap-2 mt-2 px-4 py-2 bg-[#A91D3A] hover:bg-[#CA3453] text-white rounded-[4px] text-sm font-medium transition border border-[#A91D3A] shadow-sm">
+                    <h1>Tambah Foto</h1>
+                    <input type="file" name="image_path" id="image-input" class="hidden" accept="image/*"/>
+                </label>
             </div>
             @error('image_path')
             <p class="message-error text-red-600 mt-1 text-[0.875rem]">{{ $message }}</p>

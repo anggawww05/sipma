@@ -10,13 +10,13 @@
     <form action="{{ route('dashboard.timeline.update', ['submission' => $submission, 'timeline' => $timeline]) }}" method="POST" class="grid lg:grid-cols-2 gap-3 p-4 rounded-[4px] border border-[#0d1117]/[0.12]" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
-        <div>
+        {{-- <div>
             <label for="title" class="block text-sm font-medium">Judul</label>
             <input type="text" id="title" name="title" placeholder="Masukkan judul pengajuan timeline..." value="{{ $timeline->title }}" class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" required>
             @error('title')
             <p class="message-error text-red-600 mt-1 text-[0.875rem]">{{ $message }}</p>
             @enderror
-        </div>
+        </div> --}}
         <div>
             <label for="status" class="block text-sm font-medium">Status</label>
             <select id="status" name="status" class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" required>

@@ -23,8 +23,8 @@ class TimelineStoreRequest extends FormRequest
     {
         return [
             'submission_id' => 'required',
-            'title' => 'required|string',
-            'description' => 'required|string',
+            // 'title' => 'nullable|string',
+            'description' => 'nullable|string',
             'status' => 'required|string',
             'order' => 'required|integer',
         ];

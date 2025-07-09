@@ -80,8 +80,10 @@
                                 <label for="image_path" class="text-[12px] italic">Jika tidak memiliki bukti foto, dapat
                                     menggunakan
                                     foto dummy.</label>
-                                <input type="file" name="image_path" id="image_path" accept="image/*"
-                                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#141414]">
+                                <label for="image-input" class="cursor-pointer flex items-center gap-2 mt-2 px-4 py-2 bg-[#A91D3A] hover:bg-[#CA3453] text-white rounded-[4px] text-sm font-medium transition border border-[#A91D3A] shadow-sm w-[120px]">
+                                    <h1>Tambah Foto</h1>
+                                    <input type="file" name="image_path" id="image-input" class="hidden" accept="image/*"/>
+                                </label>
                                 @error('image_path')
                                     <p class="message-error text-red-600 mt-1 text-[0.875rem]">{{ $message }}</p>
                                 @enderror

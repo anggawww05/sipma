@@ -74,11 +74,11 @@
 
             <div class="w-full grid grid-cols-3 gap-4">
                 @if(count($submissionPosts) === 0)
-                    <p class="col-span-4 w-full text-center text-[0.913rem] text-[#0d1117]/[0.42] mt-8">Data pengajuan postingan tidak ada.</p>
+                    <p class="col-span-4 w-full text-center text-[0.913rem] text-[#0d1117]/[0.42] mt-8">Data pengaduan postingan tidak ada.</p>
                 @else
                     @foreach($submissionPosts as $submissionPost)
-                        <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-200 border border-gray-200 flex flex-col">
-                            <div class="w-full h-56 overflow-hidden rounded-t-lg"> {{-- h-40 -> h-56 --}}
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-200 border border-gray-200 flex flex-col overflow-hidden h-[400px]">
+                            <div class="relative w-full h-44 md:h-52 bg-gray-100 flex items-center justify-center">
                                 <img class="w-full h-full object-cover object-center transition-transform duration-200 hover:scale-105" src="{{ asset('storage/' . $submissionPost->image_path) }}" alt="Image">
                             </div>
                             <div class="flex flex-col flex-1 p-4">

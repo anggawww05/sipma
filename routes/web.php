@@ -146,7 +146,8 @@ Route::middleware(['auth', 'role:student'])->group(function () {
 
         Route::post('/profile/submission', 'store')->name('profile-submission.store');
         Route::match(['put', 'patch'], '/profile/submission/{id}/edit', 'update')->name('profile-submission.update');
-        Route::delete('/profile/submission/{id}/delete', 'destroy')->name('profile-submission.destroy');
+        // Route::delete('/profile/submission/{id}/delete', 'destroy')->name('profile-submission.destroy');
+        // Route::get('/profile/submission/{id}/create', 'destroy')->name('profile-submission.destroy');
     });
 
     Route::controller(\App\Http\Controllers\Homepage\ProfileSubmissionController::class)->group(function () {

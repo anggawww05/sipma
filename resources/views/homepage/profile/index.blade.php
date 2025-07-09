@@ -5,12 +5,12 @@
         <div class = "my-40">
             <h1 class="text-[20px] text-center font-semibold">Profil Akun</h1>
             @if(session()->has('success'))
-                <div class="mb-[16px] w-full text-[0.913rem] text-green-400 bg-green-400/[0.08] p-3 rounded-[3px]"
+                <div class="mb-[16px] w-[600px] text-[0.913rem] text-green-400 bg-green-400/[0.08] p-3 rounded-[3px] mx-auto"
                      role="alert">
                     {{ session('success') }}
                 </div>
             @elseif(session()->has('failed'))
-                <div class="mb-[16px] w-full text-[0.913rem] text-red-400 bg-red-400/[0.08] p-3 rounded-[3px]"
+                <div class="mb-[16px] w-[600px] text-[0.913rem] text-red-400 bg-red-400/[0.08] p-3 rounded-[3px] mx-auto"
                      role="alert">
                     {{ session('failed') }}
                 </div>

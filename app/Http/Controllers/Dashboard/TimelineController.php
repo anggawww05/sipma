@@ -37,8 +37,8 @@ class TimelineController extends Controller
 
             Timeline::create([
                 'submission_id' => $request->submission_id,
-                'title' => $request->title,
-                'description' => $request->description,
+                // 'title' => $request->title ?? null,
+                'description' => $request->description ?? null,
                 'status' => $request->status,
                 'order' => $request->order,
                 'created_at' => now('Asia/Makassar'),
@@ -50,7 +50,6 @@ class TimelineController extends Controller
             return redirect(route('dashboard.submission.show', $submission))->with('failed', 'Gagal membuat pengajuan timeline!');
         }
     }
-
 
     // menampilkan halaman edit timeline pengaduan
     public function edit(int $submission_id, int $timeline_id)
@@ -70,7 +69,7 @@ class TimelineController extends Controller
             $timeline = Timeline::where('id', $timeline_id)->firstOrFail();
 
             $timeline->update([
-                'title' => $request->title,
+                // 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
                 'order' => $request->order,

@@ -116,15 +116,23 @@ class ProfileSubmissionController extends Controller
     }
 
     // mengubah status pengaduan menjadi pending
-    public function destroy(int $id)
-    {
-        try {
-            $submission = Submission::with(['user', 'category', 'submission_post'])->where('id', $id)->firstOrFail();
-            $submission->update(['status' => 'pending']);
-            return redirect(route('profile-submission.index'))->with('success', 'Berhasil mengubah status pengaduan!');
-        } catch (\Exception $e) {
-            logger($e->getMessage());
-            return redirect(route('profile-submission.index'))->with('success', 'Gagal mengubah status pengaduan!');
-        }
-    }
+    // public function destroy(int $id)
+    // {
+    //     try {
+    //         $submission = Submission::with(['user', 'category', 'submission_post'])->where('id', $id)->firstOrFail();
+    //         $submission->update(['status' => 'pending']);
+    //         return redirect(route('profile-submission.index'))->with('success', 'Berhasil mengubah status pengaduan!');
+    //     } catch (\Exception $e) {
+    //         logger($e->getMessage());
+    //         return redirect(route('profile-submission.index'))->with('success', 'Gagal mengubah status pengaduan!');
+    //     }
+    // }
+
+    // public function destroy(int $id)
+    // {
+    //     return view('homepage.profile-submission.create', [
+    //         'title' => 'Halaman Tambah pengaduan',
+    //         'categories' => Category::all(),
+    //     ]);
+    // }
 }

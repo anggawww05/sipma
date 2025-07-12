@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
-class submissionExport implements FromCollection, WithHeadings, WithColumnWidths
+class submissionExport implements FromCollection, WithHeadings, WithColumnWidths, WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -55,7 +56,7 @@ class submissionExport implements FromCollection, WithHeadings, WithColumnWidths
 
     public function headings(): array
     {
-        return ["Pembuat", "Kategori", "Tiket", "Judul", "Deskripsi", "Status", "Status Publish", "Survey"];
+        return ["Mahasiswa", "Kategori", "Tiket", "Judul", "Deskripsi", "Status", "Status Publish", "Survey"];
     }
 
     public function columnWidths(): array
@@ -70,6 +71,33 @@ class submissionExport implements FromCollection, WithHeadings, WithColumnWidths
             'G' => 20,
             'H' => 20,
         ];
-    }
 
+    }
+    public function registerEvents(): array
+    {
+        return [
+            \Maatwebsite\Excel\Events\AfterSheet::class => function (\Maatwebsite\Excel\Events\AfterSheet $event) {
+                $cellRange = 'A1:H' . $event->sheet->getHighestRow();
+
+                $event->sheet->getDelegate()->getStyle($cellRange)->applyFromArray([
+                    'borders' => [
+                        'allBorders' => [
+                            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                            'color' => ['argb' => 'FF000000'],
+                        ],
+                    ],
+                ]);
+
+                $event->sheet->getDelegate()->getStyle('A1:H1')->applyFromArray([
+                    'fill' => [
+                        'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                        'startColor' => ['argb' => 'FFCCE5FF'],
+                    ],
+                    'font' => [
+                        'bold' => true,
+                    ],
+                ]);
+            },
+        ];
+    }
 }

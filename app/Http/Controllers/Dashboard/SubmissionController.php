@@ -22,12 +22,15 @@ class SubmissionController extends Controller
     // menampilkan daftar pengaduan
     public function index(Request $request)
     {
+        // perkondisian untuk operator
         if (auth()->user()->operator_id) {
+            // jika operator adalah operator
             if ($request->search || $request->start_date || $request->end_date) {
-                $submissions = Submission::with(['user', 'category', 'submission_post'])
-                    ->whereHas('category', function ($query) {
+                $submissions = Submission::with(['user', 'category', 'submission_post']) // mengambil pengajuan dengan relasi user, kategori, dan submission_post
+                    ->whereHas('category', function ($query) { // memfilter berdasarkan kategori yang sesuai dengan tipe operator
                         $query->where('name', auth()->user()->operator->type);
                     })
+                    // menerapkan filter pencarian, tanggal mulai, dan tanggal akhir
                     ->where(function ($query) use ($request) {
                         if ($request->search) {
                             $query->where(function ($q) use ($request) {
@@ -51,6 +54,7 @@ class SubmissionController extends Controller
                     })
                     ->latest()
                     ->get();
+            // jika tidak ada filter pencarian, tanggal mulai, dan tanggal akhir maka ambil semua pengajuan
             } else {
                 $submissions = Submission::with(['user', 'category', 'submission_post'])
                     ->whereHas('category', function ($query) {
@@ -60,8 +64,10 @@ class SubmissionController extends Controller
                     ->get();
             }
         } else {
+            // jika operator adalah admin
             if ($request->search || $request->start_date || $request->end_date) {
                 $submissions = Submission::with(['user', 'category', 'submission_post'])
+                // menerapkan filter pencarian, tanggal mulai, dan tanggal akhir
                     ->where(function ($query) use ($request) {
                         if ($request->search) {
                             $query->where(function ($q) use ($request) {

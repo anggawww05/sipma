@@ -53,6 +53,7 @@
                         @else
                             @foreach($submissionPost->comments as $comment)
                                 @if($comment->user_id == auth()->user()->id)
+                                {{-- komentar sendiri --}}
                                     <div class="flex items-start justify-end gap-2">
                                         <div>
                                             <span class="block text-xs text-right text-gray-500">{{ auth()->user()->student->full_name }}</span>
@@ -63,6 +64,7 @@
                                         <img src="https://ui-avatars.com/api/?name={{ auth()->user()->student->full_name }}" alt="avatar" class="w-7 h-7 rounded-full">
                                     </div>
                                 @else
+                                {{-- komentar user lain --}}
                                     <div class="flex items-start gap-2">
                                         <img src="https://ui-avatars.com/api/?name={{ $comment->user->student->full_name }}" alt="avatar"
                                              class="w-7 h-7 rounded-full">

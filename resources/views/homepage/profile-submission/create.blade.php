@@ -41,6 +41,7 @@
                         {{ session('failed') }}
                     </div>
                 @endif
+                
                 <form action="{{ route('profile-submission.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">

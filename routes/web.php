@@ -109,6 +109,10 @@ Route::middleware(['auth', 'role:student'])->group(function () {
         Route::get('/', 'index')->name('main.index');
     });
 
+    Route::controller(\App\Http\Controllers\Homepage\ContactController::class)->group(function () {
+        Route::get('/contact', 'index')->name('contact.person');
+    });
+
     Route::controller(\App\Http\Controllers\Homepage\BlogController::class)->group(function () {
         Route::get('/blog', 'index')->name('blog.index');
         Route::get('/blog/{id}', 'show')->name('blog.show');
@@ -146,8 +150,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
 
         Route::post('/profile/submission', 'store')->name('profile-submission.store');
         Route::match(['put', 'patch'], '/profile/submission/{id}/edit', 'update')->name('profile-submission.update');
-        // Route::delete('/profile/submission/{id}/delete', 'destroy')->name('profile-submission.destroy');
-        // Route::get('/profile/submission/{id}/create', 'destroy')->name('profile-submission.destroy');
+
     });
 
     Route::controller(\App\Http\Controllers\Homepage\ProfileSubmissionController::class)->group(function () {

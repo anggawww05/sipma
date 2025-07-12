@@ -20,8 +20,18 @@
             </div>
         </div>
         <div class="lg:col-span-2">
-            <label for="title" class="block text-sm font-medium">Pengadu (Mahasiswa)</label>
+            <label for="title" class="block text-sm font-medium">Username (Mahasiswa)</label>
             <input type="text" id="title" name="title" value="{{ $submission->user->username }}"
+                class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>
+        </div>
+        <div class="lg:col-span-2">
+            <label for="title" class="block text-sm font-medium">Nama Lengkap (Mahasiswa)</label>
+            <input type="text" id="title" name="title" value="{{ $submission->user->student->full_name }}"
+                class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>
+        </div>
+        <div class="lg:col-span-2">
+            <label for="title" class="block text-sm font-medium">NIM (Mahasiswa)</label>
+            <input type="text" id="title" name="title" value="{{ $submission->user->student->nim }}"
                 class="w-full mt-2 p-3 rounded-black text-[#0d1117] border border-[#0d1117]/[0.12] rounded-[4px]" readonly>
         </div>
         <div class="lg:col-span-2">

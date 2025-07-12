@@ -31,6 +31,10 @@
                     <a href="{{ route('track.index') }}"
                         class="block py-2 px-3 text-white bg-[#0d1117] text-[16px] hover:underline @if (Route::is('track.*')) underline @endif">Timeline Pengaduan</a>
                 </li>
+                <li>
+                    <a href="{{ route('contact.person') }}"
+                        class="block py-2 px-3 text-white bg-[#0d1117] text-[16px] hover:underline @if (Route::is('track.*')) underline @endif">Kontak Kami</a>
+                </li>
             </ul>
         </div>
     </div>

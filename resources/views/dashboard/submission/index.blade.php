@@ -34,7 +34,7 @@
                     Nomor Tiket
                 </td>
                 <td class="px-6 py-3 font-medium">
-                    Pembuat
+                    Pengadu
                 </td>
                 <td class="px-6 py-3 font-medium">
                     Kategori
@@ -46,7 +46,7 @@
                     Status
                 </td>
                 <td class="px-6 py-3 font-medium">
-                    Status Publish
+                    Status Publis
                 </td>
                 <td class="px-6 py-3 font-medium"></td>
             </tr>

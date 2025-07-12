@@ -110,7 +110,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     });
 
     Route::controller(\App\Http\Controllers\Homepage\ContactController::class)->group(function () {
-        Route::get('/contact', 'index')->name('contact.person');
+        Route::get('/contact', 'index')->name('contact.index');
     });
 
     Route::controller(\App\Http\Controllers\Homepage\BlogController::class)->group(function () {
